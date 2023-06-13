@@ -31,13 +31,13 @@
                         <div class="row">
                                 <div class="col-md-5">
                                     <label>Publisher:</label>
-                                    <select name="" id="" class="form-select">
+                                    <select name="publisher" id="publisher" class="form-select">
                                         <option value="">Seleccione</option>
                                     </select>
                                 </div>
                                 <div class="col-md-5">
                                     <label>Alignment:</label>
-                                    <select name="" id="" class="form-select">
+                                    <select name="alignment" id="alignment" class="form-select">
                                         <option value="">Seleccione</option>
                                     </select>
                                 </div>
@@ -88,11 +88,13 @@
 
     <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const selectCasas = document.querySelector("#casas");
+        const selectCasas = document.querySelector("#publisher");
+        const selectAlignment = document.querySelector("#alignment");
+
         const btnGenerar = document.querySelector("#generarpdf");
         const tabla = document.querySelector("#table-superhero tbody");
 
-        function getPublishers(){
+        function getPublisher(){
             fetch(`../controllers/publisher.php?operacion=listar`)
             .then(respuesta => respuesta.json())
             .then(datos => {
@@ -104,6 +106,18 @@
                 });
             });
         }
+        function getAlignment(){
+            fetch(`../controllers/alignment.php?operacion=listar`)
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                datos.forEach(element=>{
+                    const optionTag = document.createElement("option");
+                    optionTag.value = element.id;
+                    optionTag.text = element.alignment;
+                    selectAlignment.appendChild(optionTag);
+                });
+            });
+        }
 
         //Obtiene lista de SuperHero por Publisher
         function getByPublishers(){
@@ -111,6 +125,32 @@
             const parametros = new URLSearchParams();
             parametros.append("operacion", "listarCasas");
             parametros.append("publisher_id", parseInt(selectCasas.value));
+
+            fetch(`../controllers/superhero.php?${parametros}`)
+            .then(respuesta => respuesta.json())
+            .then(datos =>{
+                tabla.innerHTML = ``;
+                datos.forEach(element =>{
+                    const tableRow = `
+                    <tr>
+                        <td>${element.id}</td>
+                        <td>${element.superhero_name}</td>
+                        <td>${element.full_name}</td>
+                        <td>${element.eye_colour}</td>
+                        <td>${element.hair_colour}</td>
+                        <td>${element.skin_colour}</td>
+                    </tr>
+                    `;
+                    tabla.innerHTML += tableRow;
+                })
+            });
+        }
+
+        function getByAlignment(){
+            //console.log(selectCasas.value);
+            const parametros = new URLSearchParams();
+            parametros.append("operacion", "listar");
+            parametros.append("alignment_id", parseInt(selectAlignment.value));
 
             fetch(`../controllers/superhero.php?${parametros}`)
             .then(respuesta => respuesta.json())
@@ -144,10 +184,12 @@
 
         //Eventos
         selectCasas.addEventListener("change", getByPublishers);
+        selectAlignment.addEventListener("change", getByAlignment);
         btnGenerar.addEventListener("click", PDFBuild);
 
         //Cuando el elemento este listo se ejecuta
-        getPublishers();
+        getPublisher();
+        getAlignment();
     });
     </script>
 

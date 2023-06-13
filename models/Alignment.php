@@ -9,7 +9,7 @@ class  Alignment extends  Conexion{
         $this->conexion = parent::getConexion();
     }
 
-    public function listAll(){
+    public function listar(){
         try {
             $consulta = $this->conexion->prepare("CALL spu_alignment_list_t1_1()");
             $consulta->execute();
@@ -20,3 +20,4 @@ class  Alignment extends  Conexion{
         }
     }
 }
+?>

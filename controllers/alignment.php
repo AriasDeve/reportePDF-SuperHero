@@ -1,15 +1,14 @@
 <?php
 
 require '../tools/helpers.php';
-require '../models/SuperHero.php';
+require '../models/Alignment.php';
 
-$superHero = new Alignment();
+$alignment = new Alignment();
 
-if(isset($_GET['operacion'])){
-    if($_GET['operacion'] == 'listarAlignment'){
-        renderJSON($superHero->listByAlignment([
-            "publisher_id" => $_GET['publisher_id'],
-            "alignment_id" => $_GET['alignment_id']
-        ]));
+if (isset($_GET['operacion'])){
+
+    if($_GET['operacion'] == 'listar'){
+        renderJSON($alignment->listar());
+        
     }
 }
