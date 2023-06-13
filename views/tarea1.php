@@ -29,23 +29,29 @@
                     <!-- Inicio body -->
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-10">
-                                <select name="casas" id="casas" class="form-select">
-                                    <option value="">Seleccione</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="d-grid">
-                                    <button class="btn btn-success" id="generarpdf">
-                                        Generar PDF
-                                    </button>
+                                <div class="col-md-5">
+                                    <label>Publisher:</label>
+                                    <select name="" id="" class="form-select">
+                                        <option value="">Seleccione</option>
+                                    </select>
                                 </div>
-                            </div>
+                                <div class="col-md-5">
+                                    <label>Alignment:</label>
+                                    <select name="" id="" class="form-select">
+                                        <option value="">Seleccione</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="d-grid">
+                                        <button class="btn btn-success mt-4" id="generarpdf">
+                                            Generar PDF
+                                        </button>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                     <!-- Fin body -->
                     <div class="card-footer text-muted">
-                        Footer
                     </div>
                 </div>
                 <!-- Fin Card -->
@@ -68,9 +74,8 @@
                             <th>ID</th>
                             <th>Nick</th>
                             <th>Nombre</th>
-                            <th>Color Ojos</th>
-                            <th>Color Cabello</th>
-                            <th>Color Piel</th>
+                            <th>Raza</th>
+                            <th>Editor</th>
                         </tr>
                     </thead>
                     <tbody>
