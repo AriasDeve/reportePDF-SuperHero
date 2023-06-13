@@ -10,3 +10,60 @@ Autem est odit magni, asperiores numquam eaque mollitia consequatur nulla aut do
     Piero Arias Tasayco
     </p>
 </div>
+
+<div class="mt-3">
+    <table class="table table-border">
+        <colgroup>
+            <col style="width: 10%;">
+            <col style="width: 25%;">
+            <col style="width: 25%;">   
+            <col style="width: 40%;">
+        </colgroup>
+        <thead>
+            <tr class="bg-primary text-light">
+                <th>#</th>
+                <th>Apellidos</th>
+                <th>Nombres</th>
+                <th>Carrera</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Arias Tasayco</td>
+                <td>Piero</td>
+                <td>Ingenieria de Software con IA</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Arias Tasayco</td>
+                <td>Piero</td>
+                <td>Ingenieria de Software con IA</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Arias Tasayco</td>
+                <td>Piero</td>
+                <td>Ingenieria de Software con IA</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Arias Tasayco</td>
+                <td>Piero</td>
+                <td>Ingenieria de Software con IA</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Arias Tasayco</td>
+                <td>Piero</td>
+                <td>Ingenieria de Software con IA</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Arias Tasayco</td>
+                <td>Piero</td>
+                <td>Ingenieria de Software con IA</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
