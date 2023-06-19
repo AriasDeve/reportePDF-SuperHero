@@ -2,6 +2,7 @@
 
 //Librerías obtenidas COMPOSER
 require '../../vendor/autoload.php';
+require '../../models/SuperHero.php';
 
 
 //Namesspaces (espacios de nombres/contenedor de clases)
@@ -11,6 +12,9 @@ use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
 //Construcción reporte PDF
 try {
+    $superhero = new SuperHero();
+    $datos = $superhero->listByRace(["race_id" => 13]);
+    $titulo = "Cyborg";
     //Contenido (HTML) que renderizaremos como PDF
     $content = "";
 
@@ -18,6 +22,7 @@ try {
     ob_start();
 
     include '../estilos.html';
+    include './datos.php';
 
     //Cierre creación binario
     $content .= ob_get_clean();
