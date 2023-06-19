@@ -74,3 +74,35 @@ BEGIN
 END $$
 
 CALL spu_alignment_list_t1_1();
+
+
+-- Lunes 19 Junio 2023
+-- nick, nombre, raza, casa. alineación, altura
+DELIMITER $$
+CREATE PROCEDURE spu_superhero_listbyrace(IN _race_id INT)
+BEGIN
+	SELECT 
+		SPH.`id`,
+		SPH.`superhero_name`,
+		SPH.`full_name`,
+		RAC.`race`,
+		PBS.`publisher_name`,
+		ALG.`alignment`,
+		SPH.`height_cm`
+		FROM superhero SPH
+		LEFT JOIN race RAC 		ON RAC.`id` = SPH.`race_id`
+		LEFT JOIN publisher PBS ON PBS.`id` = SPH.`publisher_id`
+		LEFT JOIN alignment ALG ON ALG.`id` = SPH.`alignment_id`
+		WHERE SPH.race_id = _race_id
+		ORDER BY PBS.publisher_name;
+END $$
+
+
+DELIMITER $$
+CREATE PROCEDURE spu_race_list()
+BEGIN
+	SELECT * FROM race ORDER BY 2;
+END $$
+
+CALL spu_superhero_listbyrace(13);
+
