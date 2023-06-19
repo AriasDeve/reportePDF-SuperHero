@@ -36,7 +36,6 @@
             $cerrarTabla = "
             </tbody>
             </table>
-            <h3 class='text-end'>Total:</h3>
             ";
         echo $cerrarTabla;
         }
