@@ -23,4 +23,19 @@ class  SuperHero extends  Conexion{
             die($e->getMessage());
         }
     }
+
+    public function listByRace ($data = []){
+        try{
+            $consulta = $this->conexion->prepare("CALL spu_superhero_listbyrace(?)");
+            $consulta->execute(
+                array(
+                    $data['race_id']
+                )
+            );
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch(Exeption $e){
+            die($e->getMessage());
+        }
+    }
 }
