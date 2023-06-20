@@ -67,7 +67,6 @@
       const txtAyc = document.querySelector("#ayacucho")
 
       const btnMostrar = document.querySelector("#mostrar");
-      const btnObtener = document.querySelector("#obtener");
 
       //Construir un gráfico
         //Chart(lienzo, datos, configuración)
@@ -83,23 +82,44 @@
       const grafico = new Chart(lienzo, {
         type: 'bar',
         data: {
-          labels: ['Arequipa', 'Ica', 'Lima', 'Ayacucho'],
+          labels: ['Buenos', 'Malos'],
           datasets: [
             {
-              label: '# de Dengue',
-              data: [150, 35, 54, 67],
+              label: '# de Buenos',
+              data: [50, 35, 54, 67],
               backgroundColor: coloresFondo,
               borderWidth:borde,
               borderColor: coloresBorde
             },
             {
-              label: '# de Covid',
+              label: '# de Malos',
               data: [76, 95, 34, 13],
               backgroundColor: coloresFondo2,
               borderWidth:borde,
               borderColor: coloresBorde2
             }
           ]
+        },
+        options: {
+          responsive: true,
+          legend: { position: 'bottom'},
+          scales: {
+            yAxes: [
+              {
+                display: true,
+                ticks: {
+                  beginAtZero: true,
+                  min: 0,
+                  max: 120,
+                  step: 10
+                }
+              }
+            ]
+          },
+          title: {
+            display: true,
+            text: "Hospital de Chincha" 
+          }
         }
       });
       
@@ -120,7 +140,14 @@
         fetch(`../controllers/datacharts.php?operacion=getdata`)
           .then(respuesta => respuesta.json())
           .then(datos => {
-            console.log(datos);
+            //console.log(datos);
+            grafico.data.datasets[0].data = datos.Dengue;
+            grafico.data.datasets[1].data = datos.Covid;
+
+            grafico.data.datasets[0].label = "Dengue 2023";
+            grafico.data.datasets[1].label = "Covid 2023";
+
+            grafico.update();
           });
       })
     
