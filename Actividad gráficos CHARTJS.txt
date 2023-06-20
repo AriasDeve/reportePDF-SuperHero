@@ -1,0 +1,8 @@
+GENERAR LOS SIGUIENTES GRÁFICOS:
+Cantidad de super héroes...
+ - buenos y malos de una empresa publicadora seleccionada por el usuario
+ - de los colores de ojos se debe generar una barra para las publicadoras: MARVEL COMICS, DC COMICS
+ - buenos, malos, neutrales y N/A y de todas la casas publicadoras con ID: 2, 5, 11, 18 y 24
+ - géneros (gender) por bando (alignment) de cada superheroe
+ - total de superheroes por razas (este dato deberá seleccionarlo el usuario a través de la vista de 
+   un total de 61 opciones)
